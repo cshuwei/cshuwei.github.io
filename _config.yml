@@ -71,3 +71,6 @@ deploy:
   type: git
   branch: master
   repo: https://github.com/cshuwei/cshuwei.github.io.git
+
+duoshuo_shortname: cswgh
+duoshuo_hotartical: true

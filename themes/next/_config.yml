@@ -37,7 +37,7 @@ seo: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories
+  categories: /categories
   #about: /about
   archives: /archives
   tags: /tags
@@ -132,9 +132,9 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
+social:
   #LinkLabel: Link
-
+  GitHub: https://github.com/cshuwei
 
 # Social Links Icons
 # Icon Mapping:
@@ -266,8 +266,8 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-#duoshuo_shortname:
-
+duoshuo_shortname: cswgh
+duoshuo_hotartical: true
 # Disqus
 #disqus_shortname:
 
@@ -316,9 +316,9 @@ mathjax:
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
   ua_enable: true
-  admin_enable: false
-  user_id: 0
-  #admin_nickname: Author
+  admin_enable: true
+  user_id: 6379756384082199297
+  admin_nickname: cshuwei
 
 
 # Facebook SDK Support.
@@ -343,9 +343,9 @@ facebook_comments_plugin:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
-  app_id: 9v7e36HBgsNw2FF5myYhLT1D-gzGzoHsz
-  app_key: WhMERmAGUn1gGy3UPc88eVRH
+  enable: false
+  app_id: 
+  app_key: 
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
@@ -476,3 +476,6 @@ images: images
 
 # Theme version
 version: 5.1.0
+reward_comment: 坚持分享，谢谢支持！
+wechatpay: /images/wechat.jpg
+alipay: /images/alipay.png
