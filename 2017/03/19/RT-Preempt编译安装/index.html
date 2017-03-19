@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux,RT," />
 
 
 
@@ -84,12 +84,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="cshuwei' blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta name="description" content="RT-Preempt是Linux的一个实时补丁，只需将其补丁打入内核，编译内核即可得到实时Linux。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RT-Preempt编译安装">
+<meta property="og:url" content="http://yoursite.com/2017/03/19/RT-Preempt编译安装/index.html">
 <meta property="og:site_name" content="cshuwei' blog">
+<meta property="og:description" content="RT-Preempt是Linux的一个实时补丁，只需将其补丁打入内核，编译内核即可得到实时Linux。">
+<meta property="og:image" content="http://i.imgur.com/zQ1XHCo.png">
+<meta property="og:updated_time" content="2017-03-19T11:15:01.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cshuwei' blog">
+<meta name="twitter:title" content="RT-Preempt编译安装">
+<meta name="twitter:description" content="RT-Preempt是Linux的一个实时补丁，只需将其补丁打入内核，编译内核即可得到实时Linux。">
+<meta name="twitter:image" content="http://i.imgur.com/zQ1XHCo.png">
 
 
 
@@ -117,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/19/RT-Preempt编译安装/"/>
 
 
 
 
 
-  <title> 归档 | cshuwei' blog </title>
+  <title> RT-Preempt编译安装 | cshuwei' blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,147 +242,246 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 3 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/19/RT-Preempt编译安装/" itemprop="url">
-              
-                <span itemprop="name">RT-Preempt编译安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-19T18:58:19+08:00"
-              content="2017-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/04/RTAI编译安装/" itemprop="url">
-              
-                <span itemprop="name">RTAI编译安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-04T18:57:37+08:00"
-              content="2017-02-04" >
-          02-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/25/开始学习/" itemprop="url">
-              
-                <span itemprop="name">开始学习</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-25T19:54:32+08:00"
-              content="2017-01-25" >
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/RT-Preempt编译安装/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="cshuwei">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/timg.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="cshuwei' blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="cshuwei' blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                RT-Preempt编译安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-19T18:58:19+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/19/RT-Preempt编译安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/19/RT-Preempt编译安装/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>RT-Preempt是Linux的一个实时补丁，只需将其补丁打入内核，编译内核即可得到实时Linux。</p>
+<a id="more"></a>
+<p>分别下载Linux-4.9.11内核版本和RT-preempt patch 4.9.11版本。</p>
+<blockquote>
+<p>#apt-get install build-essential kernel-package libncurses5-dev<br>//这些是编译内核所需 </p>
+<p># cd /usr/src</p>
+<p>/usr/src# wget <a href="https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.11-rt9.patch.gz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.11-rt9.patch.gz</a>    </p>
+<p>/usr/src# wget <a href="https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.8.tar.gz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.8.tar.gz</a></p>
+<p>/usr/src# tar xvf patch-4.9.11-rt9.patch.gz    </p>
+<p>/usr/src# tar xvf linux-4.1.8.tar.gz</p>
+<p>/usr/src# ln -s linux-4.1.8 linux &amp;&amp; cd linux</p>
+<p>/usr/src/linux# zcat ../patch-4.9.11-rt9.patch.gz   | patch -p1   //打上补丁</p>
+<p>/usr/src/linux# make menuconfig//之后会出现</p>
+<p><img src="http://i.imgur.com/zQ1XHCo.png" alt="configuration"></p>
+</blockquote>
+<p>这里根据自己所需完成配置，如果没有特殊要求可以直接上网找找默认配置。</p>
+<blockquote>
+<p>/usr/src/linux# make clean &amp;&amp; make -j4 //-j4即4个线程进行编译，这样速度快一些</p>
+<p>/usr/src/linux# make modules_install &amp;&amp; make install</p>
+<p>/usr/src/linux# mkinitramfs -o … //生成initrd.img</p>
+<p>/usr/src/linux# update-grub //更新grub,确定vmlinux、initrd.img、system.map是否都在(后面都跟4.1.8版本号)</p>
+<p>/usr/src/linux# reboot //重启，内核算是编译成功了。注意重启后需要进入新编译的内核，如果不能进入，可以手动F12进入grub选择版本</p>
+</blockquote>
+<p>RT-Preempt环境搭建比RTAI简单，出的问题也比较少。一般出的问题都是编译内核问题，搜索相关内容寻找答案即可。</p>
+<p>##相关资源<br><a href="https://rt.wiki.kernel.org/index.php/RT_PREEMPT_HOWTO" target="_blank" rel="external">https://rt.wiki.kernel.org/index.php/RT_PREEMPT_HOWTO</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持分享，谢谢支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="cshuwei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="cshuwei Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/RT/" rel="tag"># RT</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/04/RTAI编译安装/" rel="next" title="RTAI编译安装">
+                <i class="fa fa-chevron-left"></i> RTAI编译安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/19/RT-Preempt编译安装/"
+           data-title="RT-Preempt编译安装" data-url="http://yoursite.com/2017/03/19/RT-Preempt编译安装/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -570,11 +675,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
