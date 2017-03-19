@@ -26,7 +26,7 @@ RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变
 
 >/usr/src\# ln -s linux-4.1.8 linux && cd linux
 
->/usr/src/linux\# patch -p1 <../rtai-4.1/base/arch/x86/patches/hal-linux-4.1.18-x86-3.patch   //打上补丁
+>/usr/src/linux\# patch -p1 <../rtai-5.0-test2/base/arch/x86/patches/hal-linux-4.1.18-x86-3.patch   //打上补丁
 
 >/usr/src/linux\# make menuconfig//之后会出现
 
