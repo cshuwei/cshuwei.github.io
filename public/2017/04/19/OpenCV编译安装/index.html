@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux,OpenCV,ffmpeg," />
 
 
 
@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="cshuwei' blog">
-<meta property="og:url" content="http://yoursite.com/tags/RT/index.html">
+<meta name="description" content="OpenCV是一个用于图像处理的库，其中包含了许多图像处理技术如腐蚀膨胀、开闭运算等封装函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV编译安装">
+<meta property="og:url" content="http://yoursite.com/2017/04/19/OpenCV编译安装/index.html">
 <meta property="og:site_name" content="cshuwei' blog">
+<meta property="og:description" content="OpenCV是一个用于图像处理的库，其中包含了许多图像处理技术如腐蚀膨胀、开闭运算等封装函数。">
+<meta property="og:image" content="http://i.imgur.com/PFXIKzk.png">
+<meta property="og:image" content="http://i.imgur.com/QEnm0Em.png">
+<meta property="og:updated_time" content="2017-08-23T08:37:39.081Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cshuwei' blog">
+<meta name="twitter:title" content="OpenCV编译安装">
+<meta name="twitter:description" content="OpenCV是一个用于图像处理的库，其中包含了许多图像处理技术如腐蚀膨胀、开闭运算等封装函数。">
+<meta name="twitter:image" content="http://i.imgur.com/PFXIKzk.png">
 
 
 
@@ -117,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/RT/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/19/OpenCV编译安装/"/>
 
 
 
 
 
-  <title> 标签: RT | cshuwei' blog </title>
+  <title> OpenCV编译安装 | cshuwei' blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,81 +243,242 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        RT
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/19/RT-Preempt编译安装/" itemprop="url">
-              
-                <span itemprop="name">RT-Preempt编译安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-19T18:58:19+08:00"
-              content="2017-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/04/RTAI编译安装/" itemprop="url">
-              
-                <span itemprop="name">RTAI编译安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-04T18:57:37+08:00"
-              content="2017-02-04" >
-          02-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/OpenCV编译安装/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="cshuwei">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/timg.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="cshuwei' blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="cshuwei' blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                OpenCV编译安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-19T16:32:19+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/19/OpenCV编译安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/19/OpenCV编译安装/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>OpenCV是一个用于图像处理的库，其中包含了许多图像处理技术如腐蚀膨胀、开闭运算等封装函数。</p>
+<a id="more"></a>
+<p>首先安装一些依赖库</p>
+<pre><code># apt-get install build-essential
+# apt-get install cmake cmake-gui pkg-config libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev
+</code></pre><p>下载openCV3.2.0源码,ffmpeg-3.3.1视频处理库源码以及x264编码库，解压,先编译ffmpeg。</p>
+<pre><code># tar xvjf x264-stable.tar.bz2 &amp;&amp; cd x264-stable 
+# ./configure --enable-pic --enable-shared --disble-asm
+# make -j6 &amp;&amp; make install
+# tar xvjf ffmpeg-3.3.1.tar.bz2 &amp;&amp; cd ffmpeg-3.3.1
+# ./configure --enable-nonfree --enable-pic --enable-shared --enable-gpl --enable-libx264 --disable-asm
+# make -j6 &amp;&amp; make install
+</code></pre><p>之后编译openCV，进入解压后的目录，为方便操作，选择在cmake图形界面上进行编译配置</p>
+<pre><code># cmake-gui
+</code></pre><p><img src="http://i.imgur.com/PFXIKzk.png" alt=""><br><img src="http://i.imgur.com/QEnm0Em.png" alt=""></p>
+<p>设置输出文件夹为opencv-86,configure，之后填写CMAKE-BUILD-TYPE为Release，generate，然后到opencv-86进行编译。</p>
+<pre><code># cd opencv-86 &amp;&amp; make j-6 &amp;&amp; make install
+# /bin/bash -c &apos;echo &quot;/usr/local/lib&quot; &gt; /etc/ld.so.conf.d/opencv.conf&apos;
+# ldconfig
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持分享，谢谢支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="cshuwei WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="cshuwei Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/OpenCV/" rel="tag"># OpenCV</a>
+          
+            <a href="/tags/ffmpeg/" rel="tag"># ffmpeg</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/19/RT-Preempt编译安装/" rel="next" title="RT-Preempt编译安装">
+                <i class="fa fa-chevron-left"></i> RT-Preempt编译安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/19/OpenCV编译安装/"
+           data-title="OpenCV编译安装" data-url="http://yoursite.com/2017/04/19/OpenCV编译安装/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -504,6 +672,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
