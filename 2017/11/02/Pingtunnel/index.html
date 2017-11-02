@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,RT," />
+  <meta name="keywords" content="linux,tcp/ip," />
 
 
 
@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。">
+<meta name="description" content="通过icmp协议里的ping requests and replies来传输tcp数据，借此实现突破网络限制，连接外网。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RTAI编译安装">
-<meta property="og:url" content="http://yoursite.com/2017/02/04/RTAI编译安装/index.html">
+<meta property="og:title" content="Ping Tunnel">
+<meta property="og:url" content="http://yoursite.com/2017/11/02/Pingtunnel/index.html">
 <meta property="og:site_name" content="cshuwei' blog">
-<meta property="og:description" content="RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。">
-<meta property="og:image" content="http://i.imgur.com/zQ1XHCo.png">
-<meta property="og:updated_time" content="2017-02-16T06:02:48.308Z">
+<meta property="og:description" content="通过icmp协议里的ping requests and replies来传输tcp数据，借此实现突破网络限制，连接外网。">
+<meta property="og:image" content="https://i.imgur.com/IrVFfkp.png">
+<meta property="og:image" content="https://i.imgur.com/quZiZBF.png">
+<meta property="og:image" content="https://i.imgur.com/wyGaOGT.png">
+<meta property="og:image" content="https://i.imgur.com/l6pXJvR.png">
+<meta property="og:updated_time" content="2017-11-02T13:38:49.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RTAI编译安装">
-<meta name="twitter:description" content="RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。">
-<meta name="twitter:image" content="http://i.imgur.com/zQ1XHCo.png">
+<meta name="twitter:title" content="Ping Tunnel">
+<meta name="twitter:description" content="通过icmp协议里的ping requests and replies来传输tcp数据，借此实现突破网络限制，连接外网。">
+<meta name="twitter:image" content="https://i.imgur.com/IrVFfkp.png">
 
 
 
@@ -123,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/04/RTAI编译安装/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/02/Pingtunnel/"/>
 
 
 
 
 
-  <title> RTAI编译安装 | cshuwei' blog </title>
+  <title> Ping Tunnel | cshuwei' blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/04/RTAI编译安装/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/02/Pingtunnel/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="cshuwei">
@@ -276,7 +279,7 @@
             
             
               
-                RTAI编译安装
+                Ping Tunnel
               
             
           </h1>
@@ -291,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T18:57:37+08:00">
-                2017-02-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T14:41:06+08:00">
+                2017-11-02
               </time>
             
 
@@ -332,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/04/RTAI编译安装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/RTAI编译安装/" itemprop="commentCount"></span>
+                <a href="/2017/11/02/Pingtunnel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/02/Pingtunnel/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -359,49 +362,46 @@
       
 
       
-        <p>RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。</p>
+        <p>通过icmp协议里的ping requests and replies来传输tcp数据，借此实现突破网络限制，连接外网。</p>
 <a id="more"></a>
-<p>分别下载rtai源代码、Linux-4.1.8内核，解压，编译。我的操作系统环境是Ubuntu-16.04，现在RTAI最新版本便是rtai-5.0-test2.tar.bz2，其中的x86/patches最新只能支持4.1.8-linux内核，故将其下载。</p>
-<blockquote>
-<p>#apt-get install build-essential kernel-package libncurses5-dev<br>//这些是编译内核所需 </p>
-<p># cd /usr/src</p>
-<p>/usr/src# wget <a href="http://www.rtai.org/userfiles/downloads/RTAI/rtai-5.0-test2.tar.bz2" target="_blank" rel="external">http://www.rtai.org/userfiles/downloads/RTAI/rtai-5.0-test2.tar.bz2</a> </p>
-<p>/usr/src# wget <a href="https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.8.tar.gz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.8.tar.gz</a></p>
-<p>/usr/src# tar xvjf rtai-5.0-test2.tar.bz2</p>
-<p>/usr/src# tar xvf linux-4.1.8.tar.gz</p>
-<p>/usr/src# ln -s linux-4.1.8 linux &amp;&amp; cd linux</p>
-<p>/usr/src/linux# patch -p1 &lt;../rtai-5.0-test2/base/arch/x86/patches/hal-linux-4.1.18-x86-3.patch   //打上补丁</p>
-<p>/usr/src/linux# make menuconfig//之后会出现</p>
-<p><img src="http://i.imgur.com/zQ1XHCo.png" alt="configuration"></p>
-</blockquote>
-<p>这里根据自己所需完成配置，如果没有特殊要求可以直接上网找找默认配置。</p>
-<blockquote>
-<p>/usr/src/linux# make clean &amp;&amp; make -j4 //-j4即4个线程进行编译，这样速度快一些</p>
-<p>/usr/src/linux# make modules_install &amp;&amp; make install</p>
-<p>/usr/src/linux# mkinitramfs -o … //生成initrd.img</p>
-<p>/usr/src/linux# update-grub //更新grub,确定vmlinux、initrd.img、system.map是否都在(后面都跟4.1.8版本号)</p>
-<p>/usr/src/linux# reboot //重启，内核算是编译成功了。注意重启后需要进入新编译的内核，如果不能进入，可以手动F12进入grub选择版本</p>
-<p>/usr/src/linux# cd ../rtai-5.0.test2 //开始编译RTAI</p>
-<p>/usr/src/linux# make menuconfig</p>
-<p>/usr/src/linux# make &amp;&amp; make install</p>
-<p>/usr/src/linux# cd /usr/realtime/testsuite/user/latency</p>
-<p>/usr/realtime/testsuite/user/latency# ./run</p>
-</blockquote>
-<p>如果成功运行，那就证明安装初步成功了。之后若遇到问题，可以去官网文档查找，当然也可以借助搜索引擎解决问题。</p>
-<p>我当初安装的时候，遇到过很多的问题，如</p>
-<p><code>include/linux/compiler-gcc.h:106:30: fatal error: linux/compiler-gcc5.h: No such file or directoory</code></p>
-<p>可以通过找到compiler.h改名为compiler-gcc5.h。又如mpi_inline.h文件多重定义等等问题，要么是gcc版本太高了（即当时操作系统版本太先进）,要么是linux内核选取不够稳定，之后我采用rtai-5.0版后，一切问题迎刃而解。</p>
-<p>而在5.0版中会经常出现类似</p>
-<blockquote>
-<p>#define XXXX do｛some_statement;｝while（0）  </p>
-</blockquote>
-<p>格式的宏来巧妙实现各种编程技巧。通过查阅得gcc也能用Statement-Expressions，即</p>
-<blockquote>
-<p>#define XXX ({ some_statement;}); </p>
-</blockquote>
-<p>来代替，在出错的地方替换后成功编译。</p>
-<p>####如果编译过程中出现其他问题，不必惊慌，通过搜索引擎看看有没有人遇到同样的问题，百度不行，就换google（不能用就用bing，不过还是学会“用”比较好）。linux编译问题还是可以在各个论坛，linux内核邮件列表等找到答案。但是rtai可用资源就比较少，真没办法就去看文档，还不行就只能试试联系开发人员了。。。</p>
-<p>##更多资源<br><a href="https://www.rtai.org/userfiles/documentation/magma/html/api/" title="RTAI API" target="_blank" rel="external">https://www.rtai.org/userfiles/documentation/magma/html/api/</a></p>
+<p>在实验室有一台服务器（老师授权于我。。。相当于随意玩耍），然而学校的网络有着令人难以捉摸的特性：如果不用一卡通帐号密码登录，不仅不能上网，连内网学校官网、教务处等也上不去，更不必说要从笔记本通过电信网ssh连接到服务器了。因为总总原因，我并不想登录（登录需要冲钱，没钱登不了），于是先在校园网上借助室友帐号连接服务器，经过一系列折腾，发现了一条特色社会主义道路。</p>
+<p>实验室（与学校不在同一地点）的机子都是通过一台无线路由器连接外网（至于宿舍校园网、教室校园网如何与实验室相连等一系列问题至今未知），并且用的是公网地址123.234.56.1（事实上路由器分配的ip都是公网ip，但是从外连里都被挡住了）。如果服务器不进行web帐号密码登录，80等一系列端口访问是无法发出的，但是通过ping外网地址发现可以ping通，估计网关(即无线路由器)只过滤了tcp(udp我还没尝试过)，但从内到外的ping requests 和从外到内的 ping replies 可以正常通过。</p>
+<p>于是，我找到了PingTunnel这个软件，通过icmp的ping requests and replies来形成tunnel从而进行tcp数据传输。</p>
+<p>其网络传输路线如下图，更多传输原理和细节可以点击文末链接同时可以下载得到源码。</p>
+<p><img src="https://i.imgur.com/IrVFfkp.png" alt=""></p>
+<p>简单分析一下：client 和 Proxy 通过安装PingTunnel软件来进行icmp信息交换（通过如下代码启动），-da ,-dp 参数为client欲真正访问的目的地址和端口。 之后client就可以启动通过tcp进行通信的应用，将其目标地址定为127.0.0.1 ，端口与 -lp 参数 相同。 最后，应用数据就会先传到本地指定端口，之后通过PingTunnel封装数据穿过网关到达Proxy，proxy得到数据后会自发响应与目的地址发起通信，并将回复数据转发回Client。</p>
+<pre><code>Client: ./ptunnel -p &lt;proxy address&gt; -lp &lt;listen port&gt; -da &lt;destination address&gt; -dp &lt;destination port&gt; [-c &lt;network device&gt;] [-v &lt;verbosity&gt;] [-f &lt;logfile&gt;] [-u] [-x password]
+Proxy: ./ptunnel [-c &lt;network device&gt;] [-v &lt;verbosity&gt;] [-f &lt;logfile&gt;] [-u] [-x password]
+</code></pre><p>但是，最终实现的只是我的服务器能够连接外网（并且是免费的。。。。）。而我的目的是想通过我的笔记本从电信网络直接ssh到服务器。而这只要通过内网转发工具就可以实现外网连接内网了。我是用frp实现该功能的，如图依然是通过一个公网proxy来进行各种通信，具体信息可以看文末的给出的github地址。</p>
+<p><img src="https://i.imgur.com/quZiZBF.png" alt=""></p>
+<p>下面给出所有操作的代码，图中装PingTunnel是可能需要安装libpcap包，然后又需要flex，bison等软件</p>
+<pre><code># wget http://202.119.24.249/cache/11/02/www.tcpdump.org/08ba796d389dad839031e2766e2ad  //通过tcpdump下载libpcap
+# tar xvf libpcap-1.8.1.tar.gz
+# cd lipcap-1.8.1
+# apt-get install flex bison
+# ./configure &amp;&amp; make all &amp;&amp; make install
+# tar xvf PingTunnel-0.72.tar.gz                                                        //到PingTunnel压缩包所在目录
+# cd PingTunnel
+# make all
+
+# ./ptunnel -p 12.12.12.12 -lp 8000 -da 12.12.12.12 -dp 19420         //client,12.12.12.12为proxy地址，同时目的地址也是proxy。
+# ./ptunnel                                                           //proxy
+</code></pre><p>Ubuntu途中可能会出现error：</p>
+<pre><code>./ptunnel: error while loading shared libraries: libpcap.so.1: cannot open shared object file: No such file or directory
+</code></pre><p>通过打开/etc目录下的文件ld.so.conf ，添加两行</p>
+<pre><code>/usr/local/lib
+/usr/lib
+</code></pre><p>接下来安装frp，将下载的压缩包中frpc、frpc.ini、frpc_full.ini放到client机子上（即我的服务器），同理将frps等传到proxy上。</p>
+<pre><code># ./frpc -c frpc.ini
+# ./frps -c frps.ini
+</code></pre><p>frpc.ini和frps.ini配置信息如下：</p>
+<p><img src="https://i.imgur.com/wyGaOGT.png" alt=""><br><img src="https://i.imgur.com/l6pXJvR.png" alt=""></p>
+<p>最后启动在client启动sshd，监听2018端口。远程主机（即我的笔记本）访问proxy地址的56785端口</p>
+<pre><code># ssh 12.12.12.12 -p 56785
+</code></pre><p>这样就大功告成了，后续还可以通过screen等程序运行frp和ptunnel，以避免关闭ssh所有连接都中断了（我是通过ssh远程配置proxy和client，当然都是通过校园网，用室友的帐号，一点都不心疼）</p>
+<p>使用的软件以及更多详细信息</p>
+<p><a href="http://www.cs.uit.no/~daniels/PingTunnel/" target="_blank" rel="external">http://www.cs.uit.no/~daniels/PingTunnel/</a></p>
+<p><a href="https://github.com/fatedier/frp" target="_blank" rel="external">https://github.com/fatedier/frp</a></p>
 
       
     </div>
@@ -448,7 +448,7 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/RT/" rel="tag"># RT</a>
+            <a href="/tags/tcp-ip/" rel="tag"># tcp/ip</a>
           
         </div>
       
@@ -457,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/25/开始学习/" rel="next" title="开始学习">
-                <i class="fa fa-chevron-left"></i> 开始学习
+              <a href="/2017/09/19/Centos下安装PyDev+Eclipse/" rel="next" title="Centos下 PyDev + Eclipse安装方法">
+                <i class="fa fa-chevron-left"></i> Centos下 PyDev + Eclipse安装方法
               </a>
             
           </div>
@@ -466,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/19/RT-Preempt编译安装/" rel="prev" title="RT-Preempt编译安装">
-                RT-Preempt编译安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,8 +494,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/04/RTAI编译安装/"
-           data-title="RTAI编译安装" data-url="http://yoursite.com/2017/02/04/RTAI编译安装/">
+      <div class="ds-thread" data-thread-key="2017/11/02/Pingtunnel/"
+           data-title="Ping Tunnel" data-url="http://yoursite.com/2017/11/02/Pingtunnel/">
       </div>
     
   </div>
