@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,RT," />
+  <meta name="keywords" content="linux,Python,Eclipse," />
 
 
 
@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。">
+<meta name="description" content="通过Eclipse安装PyDev来进行Python代码的编写。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RTAI编译安装">
-<meta property="og:url" content="http://yoursite.com/2017/02/04/RTAI编译安装/index.html">
+<meta property="og:title" content="Centos下 PyDev + Eclipse安装方法">
+<meta property="og:url" content="http://yoursite.com/2017/09/19/Centos下安装PyDev+Eclipse/index.html">
 <meta property="og:site_name" content="cshuwei' blog">
-<meta property="og:description" content="RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。">
-<meta property="og:image" content="http://i.imgur.com/zQ1XHCo.png">
-<meta property="og:updated_time" content="2017-02-16T06:02:48.308Z">
+<meta property="og:description" content="通过Eclipse安装PyDev来进行Python代码的编写。">
+<meta property="og:image" content="https://i.imgur.com/QmrbTrJ.png">
+<meta property="og:image" content="https://i.imgur.com/d3UJEak.png">
+<meta property="og:image" content="https://i.imgur.com/AETOj0o.png">
+<meta property="og:image" content="https://i.imgur.com/kHqIYsP.png">
+<meta property="og:updated_time" content="2017-10-02T13:40:35.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RTAI编译安装">
-<meta name="twitter:description" content="RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。">
-<meta name="twitter:image" content="http://i.imgur.com/zQ1XHCo.png">
+<meta name="twitter:title" content="Centos下 PyDev + Eclipse安装方法">
+<meta name="twitter:description" content="通过Eclipse安装PyDev来进行Python代码的编写。">
+<meta name="twitter:image" content="https://i.imgur.com/QmrbTrJ.png">
 
 
 
@@ -123,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/04/RTAI编译安装/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/19/Centos下安装PyDev+Eclipse/"/>
 
 
 
 
 
-  <title> RTAI编译安装 | cshuwei' blog </title>
+  <title> Centos下 PyDev + Eclipse安装方法 | cshuwei' blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/04/RTAI编译安装/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/Centos下安装PyDev+Eclipse/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="cshuwei">
@@ -276,7 +279,7 @@
             
             
               
-                RTAI编译安装
+                Centos下 PyDev + Eclipse安装方法
               
             
           </h1>
@@ -291,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T18:57:37+08:00">
-                2017-02-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-19T16:32:19+08:00">
+                2017-09-19
               </time>
             
 
@@ -332,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/04/RTAI编译安装/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/04/RTAI编译安装/" itemprop="commentCount"></span>
+                <a href="/2017/09/19/Centos下安装PyDev+Eclipse/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/19/Centos下安装PyDev+Eclipse/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -359,49 +362,36 @@
       
 
       
-        <p>RTAI, 即(Real Time Application Interface)，是基于Linux Kernel而使Linux变成一个真正的实时操作系统。</p>
+        <p>通过Eclipse安装PyDev来进行Python代码的编写。</p>
 <a id="more"></a>
-<p>分别下载rtai源代码、Linux-4.1.8内核，解压，编译。我的操作系统环境是Ubuntu-16.04，现在RTAI最新版本便是rtai-5.0-test2.tar.bz2，其中的x86/patches最新只能支持4.1.8-linux内核，故将其下载。</p>
-<blockquote>
-<p>#apt-get install build-essential kernel-package libncurses5-dev<br>//这些是编译内核所需 </p>
-<p># cd /usr/src</p>
-<p>/usr/src# wget <a href="http://www.rtai.org/userfiles/downloads/RTAI/rtai-5.0-test2.tar.bz2" target="_blank" rel="external">http://www.rtai.org/userfiles/downloads/RTAI/rtai-5.0-test2.tar.bz2</a> </p>
-<p>/usr/src# wget <a href="https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.8.tar.gz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.8.tar.gz</a></p>
-<p>/usr/src# tar xvjf rtai-5.0-test2.tar.bz2</p>
-<p>/usr/src# tar xvf linux-4.1.8.tar.gz</p>
-<p>/usr/src# ln -s linux-4.1.8 linux &amp;&amp; cd linux</p>
-<p>/usr/src/linux# patch -p1 &lt;../rtai-5.0-test2/base/arch/x86/patches/hal-linux-4.1.18-x86-3.patch   //打上补丁</p>
-<p>/usr/src/linux# make menuconfig//之后会出现</p>
-<p><img src="http://i.imgur.com/zQ1XHCo.png" alt="configuration"></p>
-</blockquote>
-<p>这里根据自己所需完成配置，如果没有特殊要求可以直接上网找找默认配置。</p>
-<blockquote>
-<p>/usr/src/linux# make clean &amp;&amp; make -j4 //-j4即4个线程进行编译，这样速度快一些</p>
-<p>/usr/src/linux# make modules_install &amp;&amp; make install</p>
-<p>/usr/src/linux# mkinitramfs -o … //生成initrd.img</p>
-<p>/usr/src/linux# update-grub //更新grub,确定vmlinux、initrd.img、system.map是否都在(后面都跟4.1.8版本号)</p>
-<p>/usr/src/linux# reboot //重启，内核算是编译成功了。注意重启后需要进入新编译的内核，如果不能进入，可以手动F12进入grub选择版本</p>
-<p>/usr/src/linux# cd ../rtai-5.0.test2 //开始编译RTAI</p>
-<p>/usr/src/linux# make menuconfig</p>
-<p>/usr/src/linux# make &amp;&amp; make install</p>
-<p>/usr/src/linux# cd /usr/realtime/testsuite/user/latency</p>
-<p>/usr/realtime/testsuite/user/latency# ./run</p>
-</blockquote>
-<p>如果成功运行，那就证明安装初步成功了。之后若遇到问题，可以去官网文档查找，当然也可以借助搜索引擎解决问题。</p>
-<p>我当初安装的时候，遇到过很多的问题，如</p>
-<p><code>include/linux/compiler-gcc.h:106:30: fatal error: linux/compiler-gcc5.h: No such file or directoory</code></p>
-<p>可以通过找到compiler.h改名为compiler-gcc5.h。又如mpi_inline.h文件多重定义等等问题，要么是gcc版本太高了（即当时操作系统版本太先进）,要么是linux内核选取不够稳定，之后我采用rtai-5.0版后，一切问题迎刃而解。</p>
-<p>而在5.0版中会经常出现类似</p>
-<blockquote>
-<p>#define XXXX do｛some_statement;｝while（0）  </p>
-</blockquote>
-<p>格式的宏来巧妙实现各种编程技巧。通过查阅得gcc也能用Statement-Expressions，即</p>
-<blockquote>
-<p>#define XXX ({ some_statement;}); </p>
-</blockquote>
-<p>来代替，在出错的地方替换后成功编译。</p>
-<p>####如果编译过程中出现其他问题，不必惊慌，通过搜索引擎看看有没有人遇到同样的问题，百度不行，就换google（不能用就用bing，不过还是学会“用”比较好）。linux编译问题还是可以在各个论坛，linux内核邮件列表等找到答案。但是rtai可用资源就比较少，真没办法就去看文档，还不行就只能试试联系开发人员了。。。</p>
-<p>##更多资源<br><a href="https://www.rtai.org/userfiles/documentation/magma/html/api/" title="RTAI API" target="_blank" rel="external">https://www.rtai.org/userfiles/documentation/magma/html/api/</a></p>
+<p>Centos下 PyDev + Eclipse安装方法</p>
+<p>一、Eclipse</p>
+<p>1.下载和安装Eclipse</p>
+<p>Eclipse下载地址：<a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">http://www.eclipse.org/downloads/</a>.<br>在下载过程中可能需要连接google域名网址，所以最好先准备好翻墙工具。</p>
+<p><code>$sudo tar -xvf eclipse-inst-linux64.tar.gz</code></p>
+<p><code>$cd eclipse-inst-linux64</code></p>
+<p>`$./eclipse-inst``</p>
+<p>之后会出现一个安装图形界面，我选择安装JAVA开发环境。</p>
+<p><img src="https://i.imgur.com/QmrbTrJ.png" alt=""></p>
+<p>4.添加Eclipse桌面快捷方式</p>
+<p>二、安装PyDev</p>
+<p>网上介绍了两种安装方法，第一种是利用Eclipse更新来安装的。</p>
+<p>Help &gt; Install New Software-&gt;点add 输入<a href="http://pydev.org/updates" target="_blank" rel="external">http://pydev.org/updates</a> ，取个名字 PyDev。<br><img src="https://i.imgur.com/d3UJEak.png" alt=""></p>
+<p>当然你也可以手动到PyDev官网上下载按安装。<br>1.下载PyDev</p>
+<p>从这里可以找到最新版：<a href="http://sourceforge.net/projects/pydev/files/pydev/" target="_blank" rel="external">http://sourceforge.net/projects/pydev/files/pydev/</a></p>
+<p>2.安装PyDev</p>
+<p>下载后解压缩，得到两个文件夹：features和plugins，只要将它们复制到eclipse的相应目录下就可以了</p>
+<p>sudo cp -r /SOURCE_PATH/features /TARGET_PATH/eclipse<br>sudo cp -r /SOURCE_PATH/plugins /TARGET_PATH/eclipse<br>SOURCE_PATH替换成PyDev.zip解压缩后所在的目录，TARGET_PATH替换成eclipse安装的目录</p>
+<p>cp -r表示会复制递归处理，将指定目录下的文件与子目录一并复制过去。</p>
+<p>3.修改权限</p>
+<p>归档默认权限属于root，因此复制过去的PyDev，如果正常启动Eclipse的话无法加载PyDev，除非sudo 运行Eclipse。</p>
+<p>解决方法就是修改权限，简单的做法就是将eclipse文件夹下的所有文件/目录的权限设为所有用户可读可写可执行。</p>
+<p>sudo chmod -R 777 /PATH/eclipse<br>-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更)<br>-rwxrwxrwx (777) – 所有用户都有读、写、执行权限</p>
+<p>这个时候启动Eclipse，Windows-&gt;Preferences，就可以在左边看到PyDev了。</p>
+<p>4.配置解释器环境</p>
+<p>点击Windows -&gt;Preferences.<br>在对话框中，点击pyDev-&gt;Interpreter - Python. 如果已经安装好Python的话可以点击右侧的Quick Auto-Config，系统会自动帮你配置好，当然你也可以点New自己配置。</p>
+<p><img src="https://i.imgur.com/AETOj0o.png" alt=""></p>
+<p>三、新建工程<br> File-&gt;New-&gt;Projects…   选择PyDev-&gt;PyDevProject 输入项目名称，Finish即可<br><img src="https://i.imgur.com/kHqIYsP.png" alt=""></p>
 
       
     </div>
@@ -448,7 +438,9 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/RT/" rel="tag"># RT</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Eclipse/" rel="tag"># Eclipse</a>
           
         </div>
       
@@ -457,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/25/开始学习/" rel="next" title="开始学习">
-                <i class="fa fa-chevron-left"></i> 开始学习
+              <a href="/2017/04/19/OpenCV编译安装/" rel="next" title="OpenCV编译安装">
+                <i class="fa fa-chevron-left"></i> OpenCV编译安装
               </a>
             
           </div>
@@ -467,8 +459,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/19/RT-Preempt编译安装/" rel="prev" title="RT-Preempt编译安装">
-                RT-Preempt编译安装 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/02/Pingtunnel/" rel="prev" title="Ping Tunnel">
+                Ping Tunnel <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,8 +490,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/04/RTAI编译安装/"
-           data-title="RTAI编译安装" data-url="http://yoursite.com/2017/02/04/RTAI编译安装/">
+      <div class="ds-thread" data-thread-key="2017/09/19/Centos下安装PyDev+Eclipse/"
+           data-title="Centos下 PyDev + Eclipse安装方法" data-url="http://yoursite.com/2017/09/19/Centos下安装PyDev+Eclipse/">
       </div>
     
   </div>

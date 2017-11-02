@@ -70,7 +70,7 @@ theme: next
 deploy: 
   type: git
   branch: master
-  repo: https://github.com/cshuwei/cshuwei.github.io.git
+  repo: ssh://git@github.com/cshuwei/cshuwei.github.io
 
 duoshuo_shortname: cswgh
 duoshuo_hotartical: true
