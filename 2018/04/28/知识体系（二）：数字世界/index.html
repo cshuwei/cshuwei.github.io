@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="cshuwei' blog">
 <meta property="og:description" content="在物理世界之上，首先出现的是模拟世界，但主宰着计算机领域的却是更进一步的数字世界。">
 <meta property="og:image" content="https://i.imgur.com/JHAMT1X.png">
-<meta property="og:updated_time" content="2018-04-28T13:29:48.343Z">
+<meta property="og:updated_time" content="2018-05-18T13:57:20.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识体系（二）：数字世界">
 <meta name="twitter:description" content="在物理世界之上，首先出现的是模拟世界，但主宰着计算机领域的却是更进一步的数字世界。">
@@ -344,8 +344,14 @@
 <p>　　微小的噪声可能对5V造成影响，导致电势变为4.98，但我们可以很容易将其依旧解释为5V即1。可如果噪声超乎想象地大，让电势变为2.50000呢？这就很尴尬了。因此，我们需要一种人为制定的机制来解决这个问题。假设有A、B两个器件需要传导信息（即数字信息）。将A称为驱动源，B称为接收端，那么假设A输出的0则保证其电势在0~Vol之间，输出的1保证在Voh~5（默认电源电压为5V，尽管现如今该值不断在减小）之间，而假设B如果输入电势在0~Vil之间则为0，在Vih~5之间则为1，在Vil~Vih之间则行为不可测（故将此区域称为禁止区域）。显然，只要Vol &lt; Vil 和 Voh &gt; Vih,我们就使信息正确传输，而Vil - Vol 和 Voh - vih 就是可以忍受噪声变化幅度的范围，即噪声容限。如此，我们就彻底告别这些连续的、变化的物理量了，真正走向了离散的、逻辑的数字世界了。</p>
 <p>　　还记得在第一篇中讲过各种CMOS实现的门，现在可以完全抽象地拿来看成逻辑门。以与门为例，现在我们站在逻辑思维层面上看（动用你们的数学思维），不再关注物理半导体怎么实现，可以将其抽象为有具有两个输入，一个输出的的模块。我们可以称其为逻辑门。借用所谓真值表，我们可以很明确地表示出逻辑门输入输出之间的关系。依然以与门为例：</p>
 <p><img src="https://i.imgur.com/JHAMT1X.png" alt=""></p>
-<p>　　可以很清晰地看到，在与门中只有当两个输入都是1时输出才是1。除了与门，还有最简单的非门，或门、异或、与非、或非等门。它们都是很常见的基础逻辑门，而数字电路就是由这些基础逻辑门一步步搭建完成，从而具有了各种复杂多样的功能。数字电路主要分为组合电路和时序电路，区别在于组合电路的输出仅在于当前的输入，而时序电路的输出不仅依赖于当前输入还依赖于之前的输入，即输入的序列。简而言之，组合电路没有记忆性，而时序电路具有记忆，显而易见，时序电路更为复杂。接下来分别介绍这两种电路。</p>
-<h2 id="组合电路"><a href="#组合电路" class="headerlink" title="组合电路"></a>组合电路</h2>
+<p>　　可以很清晰地看到，在与门中只有当两个输入都是1时输出才是1。除了与门，还有最简单的非门，或门、异或、与非、或非等门。它们都是很常见的基础逻辑门，而数字电路就是由这些基础逻辑门一步步搭建完成，从而具有了各种复杂多样的功能。数字电路主要分为组合电路和时序电路，区别在于组合电路的输出仅在于当前的输入，而时序电路的输出不仅依赖于当前输入还依赖于之前的输入，即输入的序列。简而言之，组合电路没有记忆性，而时序电路具有记忆。显而易见，时序电路更为复杂。接下来分别介绍这两种电路。</p>
+<h2 id="组合电路"><a href="#组合电路" class="headerlink" title="组合电路"></a>组合电路</h2><p>　　组合电路，顾名思义即由较小单元不断组合进而形成大的具有一定逻辑功能的电路。其需满足以下条件：每个电路元件本身即为组合电路。每个电路结点或是输入或是输出。电路中不包含回路。</p>
+<p>　　要设计一个组合电路，首先需要具备布尔代数的基础知识。从高中到大学的学习生涯中，与、或、非基本公理，以及吸收律、摩根定理等多变量定理，大部分都耳熟能详，这里就不再过多赘述。要为解决一个问题而设计组合电路，首先明确输入与输出，之后可以通过真值表或者直观写出布尔表达式，再经由卡诺图化简得到最佳布尔表达式（亦可通过布尔代数进行化简，只不过过程较为繁琐，易出错）。所谓<strong>卡诺图</strong>（Karnaugh map，K-map），其实就是合并布尔表达式的图形可视化方法。卡诺图化简布尔表达式的方法就是靠画圈，用最少的圈圈住全部的1，并且所有圈都得是矩形的，具体操作、化简方法参考维基链接。经过了卡诺图的化简，我们最终就能得到一个最简表达式（可以是基于与、或、非的表达式，也可以是基于与非、或非的表达式），再通过相应的门进行线路连接即可实现对应逻辑的组合电路。如此这般，我们渐渐发现了一些常用的组合逻辑模块，如全加器、复用器（根据选择输入来选择一个输出）以及译码器（根据输入将多个输出中的一个设置为高电平）等，再由这些基本组合逻辑模块组合成大型的功能电路。即使在组合逻辑中，我们也要关注时序问题，其包括传播延迟（从输入改变到一个或多个输出达到最终值所经历的最长时间）和最小延迟（当一个输入改变到任何一个输出改变的最短时间），尽量减小延迟是电路设计师最具挑战的目标。</p>
+<h2 id="时序电路"><a href="#时序电路" class="headerlink" title="时序电路"></a>时序电路</h2><p>　　在时序电路中，当前的输出不仅取决于当前的输入，还依赖于先前的输入。锁存器和触发器是时序电路中最简单也是最基础的电路模块。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>　　在这一章中，我只回顾了组合电路和时序电路的基本概念和设计方法，具体的设计流程以及各种基本模块的电路结构我都没有提到。这是因为对于目前的数字电路设计，已经很少直接列出真值表或者通过卡诺图等来得到逻辑表达式了。随着软件业的发展，如今的数字电路设计方法也在不断革新，如今通过使用VHDL、verilog等硬件描述语言，通过仿真验证逻辑正确性，再通过综合、实现、生成bitstream等流程，最后写到相应的开发板上即可完成相应功能开发或者交予厂家生产对应硬件。而这些开发体系与流程若是深究，那又是另一番天地了。故而，我们在这里只需浅尝数字逻辑，了解基本的概念，明白各种硬件电路的由来即可。</p>
+<h2 id="扩展链接"><a href="#扩展链接" class="headerlink" title="扩展链接"></a>扩展链接</h2><p><a href="https://en.wikipedia.org/wiki/Karnaugh_map" title="卡诺图" target="_blank" rel="external">https://en.wikipedia.org/wiki/Karnaugh_map</a></p>
+<p><a href="https://en.wikipedia.org/wiki/VHDL" title="VHDL" target="_blank" rel="external">https://en.wikipedia.org/wiki/VHDL</a></p>
+
       
     </div>
 
@@ -541,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组合电路"><span class="nav-number">1.</span> <span class="nav-text">组合电路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组合电路"><span class="nav-number">1.</span> <span class="nav-text">组合电路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时序电路"><span class="nav-number">2.</span> <span class="nav-text">时序电路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number"></span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展链接"><span class="nav-number">1.</span> <span class="nav-text">扩展链接</span></a></li></ol></div>
             
 
           </div>
